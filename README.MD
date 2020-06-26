@@ -26,8 +26,8 @@ __Problems__:
 
 __Methods__:
  - Frank-Wolfe with policies:
- -- standard
- -- line search
- -- sc
- -- backtracking
+   - standard
+   - line search
+   - sc
+   - backtracking
  - SCOPT (Proximal Newtom from the [SCOPT](https://www.epfl.ch/labs/lions/technology/scopt/) package)
