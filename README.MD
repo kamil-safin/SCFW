@@ -1,6 +1,6 @@
 # SCFW
 
-Implementation of the algorithms from paper [Self-concordant analysis of Frank-Wolfe algorithms](https://arxiv.org/pdf/2002.04320.pdf).
+Implementation of the algorithms from paper [Self-concordant analysis of Frank-Wolfe algorithms](https://arxiv.org/pdf/2002.04320.pdf) (Proceedings of the 37 th International Conference on Machine Learning, Vienna, Austria, PMLR 119, 2020. Copyright 2020 by the author(s)).
 
 # Requirements
 
