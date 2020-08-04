@@ -85,7 +85,7 @@ def fista(
     return x_nxt
 
 
-def run_scopt(
+def run_prox_newton(
         problem, x_0=None, max_iter=1000, eps=1e-10, 
         use_two_phase=False, print_every=10, Lest='backtracking', 
         fista_iter=1000, fista_tol=1e-5, fista_type='mfista', print_fista=False
