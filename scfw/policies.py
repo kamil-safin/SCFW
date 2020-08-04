@@ -41,7 +41,7 @@ class SelfConcordantPolicy(BasePolicy):
                 t = 1 / delta_v * (1 - np.exp(-delta_v * Gap / (e ** 2)))
             elif nu < 4 and nu > 2:
                 const = (4 - nu) / (nu - 2)
-                t = 1 / delta_v * (1 - (1 + (-delta_v * Gap * const / (e ** 2))) ** (-1 / const))
+                t = 1 / delta_v * (1 - (1 + (-delta_v * Gap * const / (e ** 2)))) ** (-1 / const)
         return t, delta_v
     
     def get_alpha(self, fw_state, problem):
@@ -76,7 +76,7 @@ class BaseBetaPolicy(BasePolicy):
         else:
             if min(extra_param_s) < 0: #if 0 it is not defines and beta is adjusted
                 indexes = np.where(extra_param_s <= 0)
-                beta_max = min(extra_param(indexes) / (extra_param(indexes) - extra_param_s(indexes)))
+                beta_max = min(extra_param[indexes] / (extra_param[indexes] - extra_param_s[indexes]    ))
             else:
                 beta_max = 1
         return beta_max
