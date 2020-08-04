@@ -1,2 +1,5 @@
 .vscode
 *.pyc
+data
+results
+local_experiments.ipynb
