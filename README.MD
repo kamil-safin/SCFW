@@ -49,3 +49,13 @@ The goal of this problem is to minimize the utility function of the investor by 
 portfolio solving the problem:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\min_{x}\left\{f(x)=-\sum\limits_{t=1}^T\log(r_t^\top&space;x):\&space;x_i\geq&space;0,&space;\sum\limits_{i=1}^n&space;x_i=1\right\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\min_{x}\left\{f(x)=-\sum\limits_{t=1}^T\log(r_t^\top&space;x):\&space;x_i\geq&space;0,&space;\sum\limits_{i=1}^n&space;x_i=1\right\}" title="\min_{x}\left\{f(x)=-\sum\limits_{t=1}^T\log(r_t^\top x):\ x_i\geq 0, \sum\limits_{i=1}^n x_i=1\right\}" /></a>
+
+__Distance Weighted Discrimination Problem__
+
+In Distance Weighted Discrimination problem, the classification loss attains the form:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)=\frac{1}{n}\sum_{i=1}^{p}(a_{i}^{\top}w&plus;\mu&space;y_{i}&plus;\xi_{i})^{-q}&plus;c^{\top}\xi" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)=\frac{1}{n}\sum_{i=1}^{p}(a_{i}^{\top}w&plus;\mu&space;y_{i}&plus;\xi_{i})^{-q}&plus;c^{\top}\xi" title="f(x)=\frac{1}{n}\sum_{i=1}^{p}(a_{i}^{\top}w+\mu y_{i}+\xi_{i})^{-q}+c^{\top}\xi" /></a>
+
+over the compact set:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\chi&space;=\{(w,\mu,\xi)|\;||w||^{2}\leq&space;1,\mu\in[-u,u],||\xi||^{2}\leq&space;R,\xi\in\mathbb{R}_{&plus;}^p\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\chi&space;=\{(w,\mu,\xi)|\;||w||^{2}\leq&space;1,\mu\in[-u,u],||\xi||^{2}\leq&space;R,\xi\in\mathbb{R}_{&plus;}^p\}" title="\chi =\{(w,\mu,\xi)|\;||w||^{2}\leq 1,\mu\in[-u,u],||\xi||^{2}\leq R,\xi\in\mathbb{R}_{+}^p\}" /></a>
