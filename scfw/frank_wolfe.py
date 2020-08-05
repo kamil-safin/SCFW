@@ -59,7 +59,8 @@ def run_frank_wolfe(problem, x_0=None, alpha_policy='standard', max_iter=1000, e
             upper_bound = f
             x_best = x.copy()
         lower_bound = max(lower_bound, f - fw_state['Gap'])
-        if (lower_bound - upper_bound) / abs(lower_bound) > 1e-10:
+        if (lower_bound - upper_bound) / abs(lower_bound) > 1e-3:
+            print(f'upper_bound={upper_bound:.2e}, lower_bound={lower_bound:.2e}')
             sys.exit("Lower bound bigger than upper bound")
         real_Gap = upper_bound - lower_bound
         criterion = min(criterion, norm(x - x_last) / max(1, norm(x_last)))
