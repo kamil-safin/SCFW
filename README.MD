@@ -59,3 +59,13 @@ In Distance Weighted Discrimination problem, the classification loss attains the
 over the compact set:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\chi&space;=\{(w,\mu,\xi)|\;||w||^{2}\leq&space;1,\mu\in[-u,u],||\xi||^{2}\leq&space;R,\xi\in\mathbb{R}_{&plus;}^p\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\chi&space;=\{(w,\mu,\xi)|\;||w||^{2}\leq&space;1,\mu\in[-u,u],||\xi||^{2}\leq&space;R,\xi\in\mathbb{R}_{&plus;}^p\}" title="\chi =\{(w,\mu,\xi)|\;||w||^{2}\leq 1,\mu\in[-u,u],||\xi||^{2}\leq R,\xi\in\mathbb{R}_{+}^p\}" /></a>
+
+__Nonnegative Linear Systems (general KL) problem__
+
+Solving Nonnegative linear systems is a GSC optimization problem of the same form as in the Poisson linear inverse problem:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\min_{\theta\in\mathbb{R}^{d}_{&plus;},||\theta||_{1}\leq&space;t,t\in[0,R]}g(x)&plus;\lambda&space;t" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\min_{\theta\in\mathbb{R}^{d}_{&plus;},||\theta||_{1}\leq&space;t,t\in[0,R]}g(x)&plus;\lambda&space;t" title="\min_{\theta\in\mathbb{R}^{d}_{+},||\theta||_{1}\leq t,t\in[0,R]}g(x)+\lambda t" /></a>
+
+where: 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=g(\theta)=\sum_{i=1}^{N}&space;\left&space;\{\left&space;\langle&space;w_{i},\theta\right&space;\rangle\log\left(\frac{\left&space;\langle&space;w_{i},\theta\right&space;\rangle}{b_{i}}\right)-\left&space;\langle&space;w_{i},\theta\right&space;\rangle&space;\right\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g(\theta)=\sum_{i=1}^{N}&space;\left&space;\{\left&space;\langle&space;w_{i},\theta\right&space;\rangle\log\left(\frac{\left&space;\langle&space;w_{i},\theta\right&space;\rangle}{b_{i}}\right)-\left&space;\langle&space;w_{i},\theta\right&space;\rangle&space;\right\}" title="g(\theta)=\sum_{i=1}^{N} \left \{\left \langle w_{i},\theta\right \rangle\log\left(\frac{\left \langle w_{i},\theta\right \rangle}{b_{i}}\right)-\left \langle w_{i},\theta\right \rangle \right\}" /></a>
