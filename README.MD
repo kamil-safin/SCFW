@@ -35,7 +35,7 @@ __Methods__:
  - Proximal Newton
  - Proximal Gradient
  
- Proximal Newton and Proximal Gradient methids are from the [SCOPT](https://www.epfl.ch/labs/lions/technology/scopt/) package
+ Proximal Newton and Proximal Gradient implemetations are based on methods from Matlab [SCOPT](https://www.epfl.ch/labs/lions/technology/scopt/) package
 
 # Problem statements
 
