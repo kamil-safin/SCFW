@@ -23,6 +23,8 @@ result = run_frank_wolfe(portfolio_problem, alpha_policy='backtracking', max_ite
 __Problems__:
  - Poisson Inverse Problem
  - Portfolio Optimization Problem
+ - Distance Weighted Discrimination Problem
+ - Nonnegative Linear Systems (general KL) problem
 
 __Methods__:
  - Frank-Wolfe with policies:
