@@ -33,6 +33,7 @@ class DwdProblem(BaseProblem):
             self.nu = 2 * (self.q + 3) / (self.q + 2)
         else:
             self.nu = nu
+        self.name = 'dwd'
     
     def val(self, x, param=None):
         # x is flatten vector of (w, mu, xi)

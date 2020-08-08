@@ -7,19 +7,21 @@ from problems.base_problem import BaseProblem
 class PortfolioProblem(BaseProblem):
     
     def __init__(self, path, Mf=2, nu=3, rho=None):
-       self.Mf = Mf
-       self.nu = nu
-       self.R = scipy.io.loadmat(path)['W']
-       self.N, self.n = self.R.shape
-       self.sigma_f = min(
-           np.linalg.eigvalsh(
-               self.hess(
-                   self.generate_start_point()
-                   )
-               )
-           )
-       if rho is None:
-           self.rho = np.sqrt(self.n)
+        self.Mf = Mf
+        self.nu = nu
+        self.R = scipy.io.loadmat(path)['W']
+        self.N, self.n = self.R.shape
+        self.sigma_f = min(
+            np.linalg.eigvalsh(
+                self.hess(
+                    self.generate_start_point()
+                    )
+                )
+            )
+        if rho is None:
+            self.rho = np.sqrt(self.n)
+        self.name = 'portfolio'
+        
        
     def val(self, x, param=None):
         if param is None:

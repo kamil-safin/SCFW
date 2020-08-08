@@ -32,6 +32,7 @@ class KLProblem(BaseProblem):
         self.n = self.n + 1
         self.lam = lam
         self.R = R
+        self.name = 'kl'
         
     def val(self, x, param=None):
         t = x[-1]
@@ -66,8 +67,8 @@ class KLProblem(BaseProblem):
         if grad[i_max] < 0:
             s[i_max] = self.t # 1 x n
         return s
-    
     def param_func(self, x):
+    
         x = x[:-1]
         return self.W @ x
 

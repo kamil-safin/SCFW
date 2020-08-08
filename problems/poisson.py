@@ -32,6 +32,7 @@ class PoissonProblem(BaseProblem):
         self.lam =  np.sqrt(self.N) / 2
         x0 = np.ones(self.n) / self.n
         self.M = self.val(x0) / self.lam
+        self.name = 'poisson'
         
     def val(self, x, param=None):
         if param is None:
