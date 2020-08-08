@@ -18,7 +18,10 @@ class BasePolicy():
 class StandardPolicy(BasePolicy):
         
     def get_alpha(self, fw_state, problem):
-        alpha = 2 / (fw_state['k'] + 2)
+        if problem.name == 'cov_estimation':
+            alpha = 2 / (fw_state['k'] + 3)
+        else:
+            alpha = 2 / (fw_state['k'] + 2)
         return alpha
 
 class SelfConcordantPolicy(BasePolicy):
@@ -66,19 +69,33 @@ class LLOOPolicy(BasePolicy):
 
 class BaseBetaPolicy(BasePolicy):
     
-    def adjust_beta(self, extra_param, extra_param_s, case='general'):
-        if case == 'line_search':
-            if min(extra_param_s) == 0: #if 0 it is not defines and beta is adjusted
-                beta = 0.5
-            else:
-                beta = 1
-            return beta
-        else:
-            if min(extra_param_s) < 0: #if 0 it is not defines and beta is adjusted
-                indexes = np.where(extra_param_s <= 0)
-                beta_max = min(extra_param[indexes] / (extra_param[indexes] - extra_param_s[indexes]    ))
+    def adjust_beta(self, problem, fw_state, extra_param, extra_param_s, case='general'):
+        if problem.name == 'cov_estimation':
+            x = fw_state['x']
+            s = fw_state['s']
+            L = np.linalg.cholesky(x)
+            invL = np.linalg.inv(L)
+            temp = invL @ (s - x)
+            min_eig, _ = sc.eigh(temp@(invL.transpose()))
+            min_eig = min(min_eig)
+            if min_eig < 0:
+                #(1-beta)*1+beta min_eig>0 => beta<=1/(1-min_eig)
+                beta_max = min(1, 1 / abs(min_eig) - 1e-5)
             else:
                 beta_max = 1
+        else:
+            if case == 'line_search':
+                if min(extra_param_s) == 0: #if 0 it is not defines and beta is adjusted
+                    beta = 0.5
+                else:
+                    beta = 1
+                return beta
+            else:
+                if min(extra_param_s) < 0: #if 0 it is not defines and beta is adjusted
+                    indexes = np.where(extra_param_s <= 0)
+                    beta_max = min(extra_param[indexes] / (extra_param[indexes] - extra_param_s[indexes]    ))
+                else:
+                    beta_max = 1
         return beta_max
     
 class LineSearchPolicy(BaseBetaPolicy):
@@ -89,7 +106,7 @@ class LineSearchPolicy(BaseBetaPolicy):
     def get_alpha(self, fw_state, problem):
         extra_param_s = problem.param_func(fw_state['s'])
         extra_param = problem.param
-        beta_max = self.adjust_beta(extra_param, extra_param_s, case='line_search')
+        beta_max = self.adjust_beta(problem, fw_state, extra_param, extra_param_s, case='line_search')
         grad_beta = lambda beta: problem.grad((1 - beta) * fw_state['x'] + beta * fw_state['s'],
                                               (1 - beta) * extra_param + beta * extra_param_s)
         t_lb = 0
@@ -118,7 +135,7 @@ class BacktrackingPolicy(BaseBetaPolicy):
     def get_alpha(self, fw_state, problem):
         extra_param_s = problem.param_func(fw_state['s'])
         extra_param = problem.param
-        beta_max = self.adjust_beta(extra_param, extra_param_s)
+        beta_max = self.adjust_beta(problem, fw_state, extra_param, extra_param_s)
         func_beta = lambda beta: problem.val((1 - beta) * fw_state['x'] + beta * fw_state['s'],
                                              (1 - beta) * extra_param + beta * extra_param_s)
         delta_x = -fw_state['delta_x']
