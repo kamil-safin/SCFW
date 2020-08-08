@@ -50,7 +50,7 @@ def run_prox_grad(
         x_nxt = problem.projection(x - 1/Lips_cur * grad)
         diffx = x_nxt - x
         nrm_dx = norm(diffx)
-        lam_k = np.sqrt(Lips_cur * diffx.dot(diffx))
+        lam_k = np.sqrt(Lips_cur * dot_product(diffx, diffx))
         beta_k = Mf * norm(diffx)
         if backtracking:
             for _ in range(btk_iters):
@@ -63,7 +63,7 @@ def run_prox_grad(
         if backtracking:
             diffx = x_nxt - x
             nrm_dx = norm(diffx)
-            lam_k = np.sqrt(Lips_cur * diffx.dot(diffx))
+            lam_k = np.sqrt(Lips_cur * dot_product(diffx, diffx))
             beta_k = Mf * norm(diffx)
         alpha = min(beta_k / (lam_k * (lam_k + beta_k)), 1.)
         alpha_hist.append(alpha)
