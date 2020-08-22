@@ -1,6 +1,6 @@
 # SCFW
 
-Implementation of the algorithms from paper [Self-concordant analysis of Frank-Wolfe algorithms](https://arxiv.org/pdf/2002.04320.pdf) (Proceedings of the 37 th International Conference on Machine Learning, Vienna, Austria, PMLR 119, 2020. Copyright 2020 by the author(s)).
+Implementation of the algorithms from the paper [Self-concordant analysis of Frank-Wolfe algorithms](https://arxiv.org/pdf/2002.04320.pdf) (Proceedings of the 37 th International Conference on Machine Learning, Vienna, Austria, PMLR 119, 2020. Copyright 2020 by the author(s)).
 
 # Requirements
 
@@ -29,10 +29,10 @@ __Problems__:
 
 __Methods__:
  - Frank-Wolfe with policies:
-   - standard
-   - line search
-   - sc
-   - backtracking
+   - standard (with stepsize 2/(k+2))
+   - line search (exact line search)
+   - sc (FW-GSC)
+   - backtracking (BackTrackFW-GSC)
  - Proximal Newton
  - Proximal Gradient
  
