@@ -24,7 +24,8 @@ __Problems__:
  - Poisson Inverse Problem
  - Portfolio Optimization Problem
  - Distance Weighted Discrimination Problem
- - Nonnegative Linear Systems (general KL) problem
+ - Nonnegative Linear Systems (general KL) Problem
+ - Inverse Covariance Estimation Problem
 
 __Methods__:
  - Frank-Wolfe with policies:
@@ -71,3 +72,13 @@ Solving Nonnegative linear systems is a GSC optimization problem of the same for
 where: 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=g(\theta)=\sum_{i=1}^{N}&space;\left&space;\{\left&space;\langle&space;w_{i},\theta\right&space;\rangle\log\left(\frac{\left&space;\langle&space;w_{i},\theta\right&space;\rangle}{b_{i}}\right)-\left&space;\langle&space;w_{i},\theta\right&space;\rangle&space;\right\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?g(\theta)=\sum_{i=1}^{N}&space;\left&space;\{\left&space;\langle&space;w_{i},\theta\right&space;\rangle\log\left(\frac{\left&space;\langle&space;w_{i},\theta\right&space;\rangle}{b_{i}}\right)-\left&space;\langle&space;w_{i},\theta\right&space;\rangle&space;\right\}" title="g(\theta)=\sum_{i=1}^{N} \left \{\left \langle w_{i},\theta\right \rangle\log\left(\frac{\left \langle w_{i},\theta\right \rangle}{b_{i}}\right)-\left \langle w_{i},\theta\right \rangle \right\}" /></a>
+
+__Inverse Covariance Estimation Problem__
+
+In Inverse Covariance Estimation Problem we minimize the loss function:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(x)=-\log\det(x)&plus;tr(\hat{\Sigma}x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(x)=-\log\det(x)&plus;tr(\hat{\Sigma}x)" title="f(x)=-\log\det(x)+tr(\hat{\Sigma}x)" /></a>
+
+over:
+
+X=\{x\in\mathbb{R}^{n\times n},\;x=x^T,x\succeq 0, tr(x)=1\}
