@@ -1,11 +1,13 @@
 from abc import ABCMeta, abstractmethod
 
+from domain_functions.llo_oracles import LLO_ORACLES
 
 class BaseProblem():
     __metaclass__ = ABCMeta
     @abstractmethod
-    def __init__(self):
-        pass
+    def __init__(self, llo_oracle):
+        if llo_oracle is not None:
+            self.llo_oracle = LLO_ORACLES[llo_oracle]
     
     @abstractmethod
     def val(self):
@@ -34,6 +36,4 @@ class BaseProblem():
     @abstractmethod
     def projection(self):
         pass
-    
-    def lloo_oracle(self):
-        pass
+

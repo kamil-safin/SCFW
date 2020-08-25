@@ -39,10 +39,10 @@ def run_frank_wolfe(problem, x_0=None, alpha_policy='standard', max_iter=1000, e
         
         #find optimal
         grad = problem.grad(x)
-        fw_state['s'] = problem.linear_oracle(grad)
         fw_state['f'] = f
         fw_state['grad'] = grad
         fw_state['x'] = x
+        fw_state['s'] = problem.linear_oracle(grad)
         fw_state['delta_x'] = x - fw_state['s']
         fw_state['Gap'] = dot_product(grad, fw_state['delta_x'])
             

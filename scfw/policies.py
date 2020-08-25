@@ -57,9 +57,12 @@ class LLOOPolicy(BasePolicy):
         if fw_state['k'] == 1:
             self.h = fw_state['Gap']
             self.r = np.sqrt(6 * self.h / problem.sigma_f)
-        s = problem.lloo_oracle(fw_state['x'], fw_state['grad'], self.r)
+        fw_state['r'] = self.r
+        s = problem.llo_oracle(fw_state, problem)
         delta_x = fw_state['x'] - s
         fw_state['s'] = s
+        fw_state['delta_x'] = delta_x
+        fw_state['Gap'] = dot_product(fw_state['grad'], fw_state['delta_x'])
         e = np.sqrt(problem.hess_mult(delta_x)) * problem.Mf/2
         alpha = min(self.h * problem.Mf**2 / (4 * e**2), 1) * (1 / (1 + e))
         self.h = self.h * np.exp(-alpha / 2)
