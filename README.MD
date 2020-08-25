@@ -82,4 +82,4 @@ In Inverse Covariance Estimation Problem we minimize the loss function:
 
 over:
 
-X=\{x\in\mathbb{R}^{n\times n},\;x=x^T,x\succeq 0, tr(x)=1\}
+<a href="https://www.codecogs.com/eqnedit.php?latex=X=\{x\in\mathbb{R}^{n\times&space;n},\;x=x^T,x\succeq&space;0,&space;tr(x)=1\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?X=\{x\in\mathbb{R}^{n\times&space;n},\;x=x^T,x\succeq&space;0,&space;tr(x)=1\}" title="X=\{x\in\mathbb{R}^{n\times n},\;x=x^T,x\succeq 0, tr(x)=1\}" /></a>
