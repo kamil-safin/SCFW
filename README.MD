@@ -33,6 +33,7 @@ __Methods__:
    - line search (exact line search)
    - sc (FW-GSC)
    - backtracking (BackTrackFW-GSC)
+   - lloo (LLOO-based convex optimization)
  - Proximal Newton
  - Proximal Gradient
  
